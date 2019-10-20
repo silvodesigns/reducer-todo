@@ -17,6 +17,8 @@ function reducer(state, action) {
             completed: false,
             id: state.length + 1
         }];
+        case 'COMPLETED':
+            return [...state,{completed: true}];
       default:
         return state;
     }
