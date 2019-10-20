@@ -1,7 +1,11 @@
 body {
   background-color:yellow;
 }
+p:hover {
+  cursor: pointer;
+
+}
 
 .completed{
-  text-decoration:line-through;
+ text-decoration: line-through;
 }

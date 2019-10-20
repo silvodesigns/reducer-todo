@@ -5,6 +5,7 @@ function Todo(props){
     const [state, setState] = useState(props.item.completed);
    
     const handleClick = e => {
+       e.preventDefault();
        if(state == false){
            setState(true);
        } else {
@@ -14,7 +15,7 @@ function Todo(props){
 
 
     return(
-        <p className={state == true ? ".completed" : ""} onClick={handleClick}>{props.item.item}</p>
+        <p className={state == true ? "completed" : ""} onClick={handleClick}>{props.item.item}</p>
 
     )
 
