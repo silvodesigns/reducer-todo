@@ -2,20 +2,17 @@ import React, {useState} from  'react';
 
 function Todo(props){
 
-    const [state, setState] = useState(props.item.completed);
+    const [state, setState] = useState(props.item);
+    const {completed, item, id }= state;
    
     const handleClick = e => {
        e.preventDefault();
-       if(state == false){
-           setState(true);
-       } else {
-           setState(false);
-       }
+       setState({item: item, id: id, completed: !completed});
     }
 
 
     return(
-        <p className={state == true ? "completed" : ""} onClick={handleClick}>{props.item.item}</p>
+        <p className={state.completed === false ? "" : "completed"} onClick={handleClick}>{state.item}</p>
 
     )
 

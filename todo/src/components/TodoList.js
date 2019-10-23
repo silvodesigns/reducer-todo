@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Todo from './Todo';
+import {StateContext} from '../contexts/context.js';
 
 function TodoList(props){
 
+    const data = useContext(StateContext);
+
+
     return(
-         props.todoList.map(item => <Todo item={item}/> )
+         data.map(item => <Todo item={item}/> )
+       
     )
               
 

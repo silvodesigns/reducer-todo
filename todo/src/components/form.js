@@ -9,17 +9,29 @@ function Form(props) {
      updateValue(e.target.value);
  }
 
-  const handleSubmit = e => {
+  const handleAdd = e => {
       e.preventDefault();
-      console.log("submitted", props);
       props.dispatch({type: "ADD_TODO", payload: inputValue});
 
   }
+
+  const handleCompleted = e => {
+    e.preventDefault();
+    let toSearch = document.getElementsByClassName("completed");
+    let converted = Array.from(toSearch);
+    converted.forEach(function(element) {
+      element.remove();
+    });
+
+
+}
   return (
     <form className="add-task">
         <label for="item">Add a task</label>
         <input onChange={handleChange} type="text" id="item" name="item"/>
-        <button onClick={handleSubmit} type="button">Add</button>
+        <button onClick={handleAdd} type="button">Add</button>
+        <button onClick={handleCompleted} type="button">clear completed</button>
+
      
     </form>
   );
